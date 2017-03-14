@@ -1,0 +1,21 @@
+[Resource DLL Projects]
+Item0=Английский (США)*$00000409*enu*enu
+Item1=Русский*$00000419*rus*rus
+
+[RDP Source Files]
+Item0=Main.dfm
+Item1=Options.dfm
+Item2=About.dfm
+Item3=edUnit.dfm
+Item4=StatUnit.dfm
+Item5=gEdUnit.dfm
+Item6=MaskAsk.dfm
+Item7=SrchUnit.dfm
+Item8=uProgres.dfm
+Item9=EQUnit.dfm
+Item10=EQPrUnit.dfm
+Item11=MaskHlpUnit.dfm
+Item12=SaveEQPrUnit.dfm
+Item13=DelEQPrUnit.dfm
+Item14=ReqLyrUnit.dfm
+Item15=MP3NAV.drc

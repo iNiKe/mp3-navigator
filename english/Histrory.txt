@@ -1,0 +1,110 @@
+*** MP3 NaviGatoR : Version History ***
+v2.9 (26/03/2003)
+  * Ported to D7
+  * Code improvements
+  * Using function FileInfo() from in_mp3.dll
+
+v2.8 (19/09/2002)
+  * 1st version for internet
+  * Bugfixes
+
+v2.7 (30/03/2002)
+  * Integrated lyrics database!
+    ADO, M$ Jet.OLEDB.4.0
+    easy serch/request
+  * TAGs union Fix
+  * Improved Skin
+  * LoadSkin bugFIX
+  * TagEditor.OnLoad bugFIX
+  * Volume/Balance bugFIX
+  * Added menus for Edit-s:
+    UPCASE, downcase, First Capital
+  * WindowsXP-compatibe code
+  * "Cosmetic" fixes
+
+v2.6a (25/02/2002)
+  * Special build 4 U.S.A.
+
+v2.5 (07/01/2002)
+  * Fix in Group TAG-editor
+  * Fix in ID3v2 engine
+  * Added genres:
+    IDM
+
+v2.4 (04/08/2001)
+  * Somefixes
+  * Added genres:
+    Jump Up
+
+v2.3 beta 1 (07/08/2001)
+  * Now MP3 NaviGatoR uses Winamp's dlls
+    in_mp3.dll, out_*.dll, vis_*.dll!
+    Enjoy and forget slowdowns :)
+
+v2.2 beta 3 (21/07/2001)
+  * Keybinding info :)
+
+v2.2 beta 1 (28/06/2001)
+ One more of my hard drives crashed :(
+ but sources are rescued!
+  * Changed ID3v2 engine
+  * Lots of bugfixes
+  * Added genre:
+    Speed Garage, Rapcore
+
+v2.1 beta 1 (18/03/2001)
+  * Fully reconstructed version!
+  * Improved MPEG-parser
+  * Support for ID3v1.x, ID3v2.x and DID Tag-s
+  * Supports *.m3u, *.pls, *.nks playlists
+  * Added genre:
+    Breakbeat, Garage, Progressive House
+
+
+v2.00 beta 5 Src Crash! (09/04/Y2k)
+  * My only HDD crashed :(((
+    all my sources are lost (MP3, Soft, Img, etc.)
+    This was the moment when development of my soft stopped for long time
+
+v2.00 beta 5 (08/04/Y2k)
+  * "MP3 NaviGatoR" granted awards in contest of computer programs
+    "Junior Programmer 2000", FESU, Vladivostok, Russia
+    Rules! :)
+
+v2.00 beta 4 build 05/04/Y2k
+  * Now can handle DID-tags!
+  * Bugfix for file processing
+  * Now all options are stored in windows *.ini file (mp3nav.ini)
+
+v2.00 beta 3 build 01/04/Y2k
+  * Fixed bug in ID3 editor
+  * Added new playlist type - *.nks, now default playlist is mp3nav.nks, program loads faster
+  * Added skin support
+  * Removed useless column "size"
+  * Added balance control of WaveOUT
+  * Changed sliders interface - now more comfortable
+
+v2.00 beta 2 build 26/03/Y2k
+  * Now can play MPEG music (*.mp3)!
+  * Added volume control WaveOUT
+  * Now current PlayList saves automatically (mp3nav.m3u).
+  * Can change PlayList font
+  * Bugfixes
+
+v2.00 beta 1 build 10/03/Y2k
+  * Improved version, interface totally changed
+    MP3 NaviGatoR now can:
+  * Edits ID3 Tag of single file
+  * Edits ID3 Tags of group of files
+  * Loads PlayList-s (*.m3u)
+  * Shows MPEG info
+  * PlayList can be sorted by fields of ID3 Tag: Artist/Title/Genre/Album/Year/Comment and by file size/name
+  * Easy files manipulate
+  * Added delete file function
+  * Handle ReadOnly files correct
+
+v1.00 beta 1 build 01/03/Y2k
+ * First coming of MP3 NaviGatoR.
+ * Easy interface don't let you get lost :)
+
+*** Started from 01/03/Y2k ***

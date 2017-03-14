@@ -1,0 +1,317 @@
+                   1. General description.
+
+   - What is MPEGPlay?
+   MPEGPlay is a 32-bit Delphi component, that allows to decode
+and play MPEG-1 and MPEG-2 LSF streams.  MPEGPlay  consists  of
+the DLL (decoding and playing engine), and the Delphi component
+(interface for the DLL).
+
+   - What streams does MPEGPlay play?
+   Currently MPEGPlay supports MPEG-1  layers  I, II, III,  and 
+MPEG-2 LSF audio streams.
+ 
+   - What output does MPEGPlay support?
+   Music is played  using  the  standard  Windows  wave  output 
+interface. So there must be no icompatibilities with any  sound 
+hardware. 
+   MPEGPlay is also capable of writing the  decoded  stream  to 
+the raw pcm file. 
+
+   - How to use it?
+   The description of the component is down here,  demo  player 
+and the DLL source are included.
+
+   - What distribution rights do I have?
+   The package and it's contens are Donation-ware. See REDIST.TXT
+for details.
+   
+   - What is the slider included in the package for?
+   This slider has a property OnStopTracking. So you can make a 
+seek in response to this event, not  to  OnChange.  It  can  be 
+useful for you.
+   
+                   2. Structure of the component.
+
+   - PROPERTIES
+
+   a) public
+
+	Paused : boolean;
+
+	Runtime, read-write.  Shows,  whether  the  playing  is 
+paused. Assigning a value to this property resumes or  suspends 
+the player engine.
+
+	CurrentPosition : integer;
+
+	Runtime, read-write. Shows the current playing position
+in milliseconds. Assigning a value to this property forces  the 
+player engine to try to change the position. If the  stream  is 
+non-seekable, or seeking failed, the exception is raised.
+
+	Mode : integer;
+
+	Runtime, read-ony. Shows the player engine mode.  Valid
+mode constants are:
+      plmOpened  = 0;
+      plmReady   = 1;
+      plmStopped = 2;
+      plmPlaying = 3;
+      plmPaused  = 4;
+
+	Frequency : integer;
+
+	Runtime, read-only. Returns  frequency  of  the  opened
+stream. If the stream is not opened, raises an exception.
+
+	Layer : integer;
+
+	Runtime, read-only. Returns layer of the opened stream.
+If the stream is not opened, raises an exception.
+
+	Bitrate : integer;
+
+	Runtime,  read-only.  Returns  bitrate  of  the  opened
+stream. If the stream is not opened, raises an exception.
+
+	ChannelMode : e_mode;
+
+        Can be stereo, joint_stereo, single_channel or dual_channel.
+        	
+        Length : integer;
+
+	Runtime, read-only. Returns length of the opened stream
+in milliseconds.  If  the  stream  is  not  opened,  raises  an 
+exception. 
+
+	PlayStopped : boolean;
+
+	Runtime, read-only. It is set to true,  if  the  player 
+engine has  finished  playing  the  stream.  This  property  is 
+automatically reset to false when it appeared to  be  true  and 
+the "true" state was returned to the program.
+
+	DLLLoaded : boolean;
+
+	Runtime, read-only. Returns true, if the DLL was loaded
+correctly and the player engine can be used.
+
+    b) published
+
+	Seekable : boolean;
+
+	Read-write. Shows, whether the stream  can  be  seeked. 
+Seeking failes, if this property is set to false. 
+
+        FromStream : boolean;
+
+	Read-write. Shows, whether the player engine takes data
+(when FromStream = false)from the file stream  (see  StreamName 
+property),or calls callback procedures (see OnXXXStream events) 
+to manage the input stream (when FromStream = true). 
+
+        PlayerPriority : TPlayPriority;
+
+	Defines  the  player  engine  thread   priority.   This 
+property can take next values: 
+
+TPlayPriority = (Idle,Lowest, BelowNormal, Normal, AboveNormal, 
+                 Highest, TimeCritical);
+
+	UseTimer : boolean;
+
+	Defines whether the component will use  internal  timer 
+to notify the  program  about  position  change  and  when  the  
+playback is stopped. If UseTimer is set to false, you can check
+for the current position (see CurrentPosition public  property)  
+and PlayStopped (see public PlayStopped property). 
+
+	TimerFreq : integer;
+
+	Defines frequency for internal timer  in  milliseconds. 
+Smaller interval will cause  more  frequent  OnPosUpdate  event 
+generation. If this property is set  to  0,  UseTimer  property 
+turns into false and internal timer is turned off.
+
+	AutoPlay : boolean;
+
+	When this property is set to true, the Open method will
+call Play method, so the playback will be started automatically
+after opening.  
+
+	StreamName : String;
+
+        Just the filename of the stream to be played.
+
+	OutputDevice: TOutputDevice;
+
+	The property specifies,  whether  the  stream  will  be 
+played, or just decoded and written to raw pcm file.  Can  take 
+next values:
+
+        TOutputDevice = (wavemapper, pcmfile);
+
+	OutFilename : string;
+
+	That's the filename to write to, when  OutputDevice  is
+set to pcmfile.
+
+	PathToDLL : String;
+
+	Player engine DLL (mpegdll.dll) can be located  in  the 
+same  directory  where  the  EXE  module  is,  in  one  of  the  
+directories, that are specified in the PATH environment string,
+or in the Windows system directory. If you want to place it  to
+some particular directory not  mentioned  above,  you  have  to 
+specify the path to the DLL here. 
+
+	StartPos : integer;
+	EndPos : integer;
+
+	The properties define the starting and  stopping  posi-
+tions in milliseconds. If the Endpos is set to zero, the stream
+will be played till it's end.
+
+        PlayedXTimes : integer;
+
+	 This property shows, how many  times  was  the  stream 
+played.
+
+	WaveDeviceNum : integer;
+
+        If you have multiple sound cards and want the audiodata 
+to be sent to the particular card, you can specify  the  number
+of the sound device number here.
+
+   - METHODS
+
+	Init.
+
+	Loads  the  library,  checks  for  DLL's  validity  and 
+initializes the internal variables.
+
+	Deinit.
+
+	Unloads library.
+
+	Open. 
+
+	Opens the stream, specified in StreamName property.
+
+	Play.
+
+	Plays the stream.
+
+	Restart. 
+
+	Restarts playback after it has been  stopped,  and  not 
+closed yet. 
+
+	Stop.
+
+	Stops the playback.
+
+	Close. 
+
+	Closes the opened stream.
+
+   - EVENTS
+
+	The next two events are generated by the timer. 
+
+	OnPosUpdate:TPosUpdateEvent 
+	TPosUpdateEvent = procedure (Pos,Len:longint) of object;
+ 	Current position and  Stream  length  (in milliseconds) 
+are passed to the handler. 
+
+	OnPlayEnd : TNotifyEvent 
+	This event is generated  when  MPEGPlay  noticed,  that 
+the player engine finished playing.
+
+	The following events are used to provide access to  the 
+streams, that are not local files (resource, memory, TCP/IP).
+	You must remember, that this events are  called  within
+the player thread, so NO VCL functions can  be  called  by  the 
+handlers.
+
+	OnOpenStream : TOpenStreamEvent 
+	TOpenStreamEvent = procedure (var Nonseekable:boolean; 
+                               var Context:pointer) of object;
+	The event is called when the stream is  to  be  opened.
+The handler must return context, that will be passed  to  other 
+stream-handling events. If the event handler fails to open  the 
+stream, it returns nil in Context variable.
+     
+
+	OnCloseStream: TCloseStreamEvent 
+        TCloseStreamEvent = procedure (Context:pointer) of 
+                            object;
+        Context-pointed stream can be closed. It is not  longer
+needed to the player engine: the Close method was called. 
+
+        OnRestartStream: TRestartStreamEvent 
+        TRestartStreamEvent = procedure (Context:pointer; 
+                              var res:boolean) of object;
+	THe event handler must reset  the  stream  position  to 
+zero. This can be done by seeking, reopening the stream  or  in 
+any other way - player engine  only  needs  the  stream  to  be 
+positioned to zero. Res variable  returns  the  result  of  the
+resetting a stream. False means, that Reset failed.
+
+	OnGetStreamSize: TGetStreamSizeEvent
+	TGetStreamSizeEvent = procedure (Context:pointer; 
+                              var res: longint) of object;
+        The event handler must return the size of  the  stream,
+specified by Context. Returning -1 means fault.
+	
+	OnSeekStream : TSeekStreamEvent 
+	TSeekStreamEvent = procedure (Context:pointer; 
+                           numbytes:LongInt;MoveMethod:LongInt;
+                           var res:LongInt) of object;
+	The event handler must change the position of a stream.
+Context is a stream handle, MoveMethod can be next:
+     soFromBeginning = 0;
+     soFromCurrent = 1;
+     soFromEnd = 2;
+	numbytes specifies the new distance from  <MoveMethod>,
+and res must be set to new position in the stream  from  stream
+beginning.
+
+	OnReadStream : TReadStreamEvent 
+        TReadStreamEvent = procedure (Context:pointer;
+                           var read_buffer;
+                           nNumberOfBytesToRead:LongInt;
+                           var nNumberOfBytesRead:LongInt; 
+                           var res:boolean) of object;
+        The event handler must read nNumberOfBytesToRead  bytes
+from Context stream into read_buffer, and return the ammount of
+bytes read in nNumberOfBytesRead and success or fault in res.
+
+                           3. Usage
+
+   You can  install  MPEGPlay  to  the  component  palete  (the  
+Wabbit's) or create it manually. Just don't forget  about  INIT
+method.
+
+   This component and the player engine DLL  are  free  to  use 
+for any purposes. But read REDIST.TXT for details.
+
+                         4. Copyright
+
+   Copyright (c)1998 Eugene Mayevski.
+   MPEG decoder engine is based on maplay  -  mpeg  player  for 
+unix.
+
+   Tobias Bading (bading@cs.tu-berlin.de)  wrote  the  original 
+maplay source for UNIX.
+
+   The ISO MPEG Audio Subgroup Software Simulation Group  wrote 
+the public C code for a MPEG Audio decoder, and the  layer  III 
+code of maplay for Win32 was adapted from here.
+
+   Jeff  Tsay  ( ctsay@pasteur.eecs.berkeley.edu )  ported  the 
+original maplay to Win32, wrote the interface code and  adapted 
+and optimized the layer III code from the public c code.
+
+   Big thanks to Alon Gingold (gingold@hiker.org.il), who helped
+me to test and improve the component and the engine. 

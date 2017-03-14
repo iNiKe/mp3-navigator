@@ -1,0 +1,16 @@
+OnCreate
+OnShow
+OnCanResize
+OnConstrainedResize
+OnResize
+OnActivate
+OnCanResize
+OnConstrainedResize
+OnCanResize
+OnConstrainedResize
+OnPaint
+OnCanResize
+OnConstrainedResize
+OnMouseMove
+OnCloseQuery
+OnClose

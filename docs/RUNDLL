@@ -1,0 +1,35 @@
+rundll32 user,exitwindows              Завершение работы Windows
+rundll32 user,wnetconnectdialog        Вызвать окно "Подключение сетевого диска"
+rundll32 user,wnetdisconnectdialog     Вызвать окно "Отключение сетевого диска"
+rundll32 user,disableoemlayer          Спровоцировать сбой
+rundll32 user,repaintscreen            Обновить (как <F5>)
+rundll32 user,setcursorpos             Курсор мыши переместить в левый верхний угол
+rundll32 diskcopy,DiskCopyRunDll       Окно "Copy Disk" вызвать
+rundll32 rnaui.dll,RnaWizard /1        Диалог "Установка Связи" вызвать (/1 = безокна)
+rundll32 shell,shellexecute Explorer-  Окно открыть в корневом каталоге
+rundll32 shell32,OpenAs_RunDLL Окно    "Открыть с помощью..." вызвать***
+rundll32 shell32,SHFormatDrive Окно    "Форматирование: Диск3,5(А)" вызвать
+rundll32 shell32,ShellAboutA Info-Box  (о Windows) вызвать
+rundll32 shell32,SHExitWindowsEx 0     Windows 98 перезагрузить (без autoexec.bat и др.)
+rundll32 shell32,SHExitWindowsEx 1     Работу с Windows 98 закончить
+rundll32 shell32,SHExitWindowsEx 2     Windows-98-PC boot
+rundll32 shell32,SHExitWindowsEx -1    Windows-98-Explorer перезагрузить
+rundll32 shell32,Control_RunDLL        Открыть окно "Панель управления"
+rundll32 shell32,Control_RunDLL desk.cpl Открыть "Свойства Экрана"
+rundll32 shell32,Control_RunDLL main.cpl @<n> Открыть Modul-Панели управления из MAIN.CPL **
+rundll32 krnl386.exe,exitkernel        выход из Windows без любых сообщений/вопросов
+rundll32 user,swapmousebutton          "Переставить" клавиши мыши *
+rundll32 keyboard,disable              "Отключить" клавиатуру *
+rundll32 mouse,disable                 "Отключить" мышь *
+rundll rnaui.dll,RnaDial               "провайдер" Вызвать окно "Установка связи" с именем "провайдер"
+rundll32 user,tilechildwindows         переместить все не свe:рнутые окна сверху вниз
+rundll32 user,cascadechildwindows      переместить все не свe:рнутые окна каскадом
+rundll32 sysdm.cpl,InstallDevice_Rundll установить non-Plug&Play оборудование
+rundll32 msprint2.dll,RUNDLL_PrintTestPage выбрать в появившемся меню принтер и послать а него тест
+rundll32 user,setcaretblinktime        установить новую частоту мигания курсора *
+rundll32 user, setdoubleclicktime      установить новую скорость  двойного нажатия *
+rundll32 setupx.dll,InstallHinfSection DefaultInstall 130; C:\file.inf окно "Перезапуск системы. Произвести еe: сейчас? J Да/нет J" ****
+* обратные / повторные ("enable") команды не работают
+** : 0=Maus, 1=Keyboard, 2=Printer, 3=Fonts, 4=Energie
+*** при желании "завязать" программу для расширения *.XSN , необходимо
+    подставить в строку имя файла (rundll32.exe shell32.dll,OpenAs_RunDLL file.XSN)

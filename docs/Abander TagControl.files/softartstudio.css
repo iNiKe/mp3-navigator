@@ -1,0 +1,39 @@
+BODY {
+	SCROLLBAR-FACE-COLOR: #d2dbe8; FONT-SIZE: x-small; SCROLLBAR-HIGHLIGHT-COLOR: #d2dbe8; SCROLLBAR-SHADOW-COLOR: #d2dbe8; SCROLLBAR-3DLIGHT-COLOR: #d2dbe8; SCROLLBAR-ARROW-COLOR: #000000; SCROLLBAR-TRACK-COLOR: #e3e7ea; SCROLLBAR-DARKSHADOW-COLOR: #84949b
+}
+.link1 {
+	FONT-SIZE: 12px; COLOR: #2f64bb; FONT-FAMILY: Verdana, Arial; TEXT-DECORATION: none
+}
+.link1:hover {
+	FONT-SIZE: 12px; COLOR: #841111; FONT-STYLE: normal; FONT-FAMILY: Verdana, Arial; TEXT-DECORATION: underline
+}
+.link2 {
+	FONT-SIZE: 10px; COLOR: #0066cc; FONT-FAMILY: Verdana, Arial; TEXT-DECORATION: none
+}
+.link2:hover {
+	FONT-SIZE: 10px; COLOR: #cc0000; FONT-FAMILY: Verdana, Arial; TEXT-DECORATION: underline
+}
+.brdr {
+	BORDER-RIGHT: #999999 1px solid; BORDER-TOP: #999999 1px solid; BORDER-LEFT: #999999 1px solid; BORDER-BOTTOM: #999999 1px solid
+}
+.txt_min {
+	FONT-SIZE: xx-small; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; TEXT-DECORATION: none
+}
+TD {
+	FONT-SIZE: x-small; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+P {
+	FONT-SIZE: x-small; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+A {
+	FONT-SIZE: x-small; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+.menu_capt {
+	FONT-SIZE: 12px; COLOR: #000000; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; TEXT-DECORATION: none
+}
+.Link_res {
+	FONT-SIZE: large; COLOR: #5485ba; FONT-FAMILY: Impact, "Arial Black", Arial
+}
+.Link_res:hover {
+	FONT-SIZE: large; COLOR: #cc0000; FONT-FAMILY: Impact, "Arial Black", Arial
+}

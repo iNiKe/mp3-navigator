@@ -1,0 +1,9 @@
+; s u m e a . amp
+[Text]
+Normal=#30646c		 
+Current=#ffffff		 
+NormalBG=#91c9cc         
+SelectedBG=#73afb4	 
+Font=Ariel
+mbBG=#91c9cc		 
+mbFG=#1c5058

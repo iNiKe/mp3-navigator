@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0031)http://www.id3.org/lyrics3.html -->
+<HTML><HEAD><TITLE>Lyrics3 made easy</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1251">
+<STYLE type=text/css>TD.h1 {
+	FONT: 43px Arial, Helvetica
+}
+TD.h2 {
+	FONT: 27px Arial, Helvetica
+}
+DIV.h5 {
+	FONT: 14px Arial, Helvetica
+}
+TD {
+	FONT: 14px Arial, Helvetica
+}
+BODY {
+	FONT: 14px Arial, Helvetica
+}
+P.t {
+	FONT: 14px Arial, Helvetica
+}
+A {
+	COLOR: #dd6600; TEXT-DECORATION: none
+}
+B {
+	FONT-WEIGHT: bold
+}
+</STYLE>
+
+<META content="Lyrics3 explained." name=description>
+<META content="Lyrics3, ID3, MP3" name=keywords>
+<META content="MSHTML 6.00.2800.1106" name=GENERATOR></HEAD>
+<BODY text=black bgColor=white>
+<CENTER>
+<SCRIPT type=text/javascript><!--
+google_ad_client = "pub-1408728402565238";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_format = "728x90_as";
+google_color_border = "000000";
+google_color_bg = "FFFFFF";
+google_color_link = "DD6600";
+google_color_url = "DD6600";
+google_color_text = "000000";
+//--></SCRIPT>
+
+<SCRIPT src="Lyrics3 made easy.files/show_ads.js" 
+type=text/javascript>
+</SCRIPT>
+
+<TABLE border=0>
+  <TBODY>
+  <TR>
+    <TD class=h1>&nbsp;Lyrics3 made easy&nbsp;</TD></TR>
+  <TR>
+    <TD bgColor=#ff7700><IMG height=1 alt="" 
+      src="Lyrics3 made easy.files/fillpx.gif" width=1></TD></TR></TBODY></TABLE><A 
+href="http://www.id3.org/">Home</A> | <A 
+href="http://www.id3.org/intro.html">Introduction</A> | <A 
+href="http://www.id3.org/develop.html">Developer Info</A> | <A 
+href="http://www.id3.org/implement.html">Implementations</A> | <A 
+href="http://www.id3.org/faq.html">FAQ</A> <BR>&nbsp; 
+<TABLE width="90%" border=0>
+  <TBODY>
+  <TR>
+    <TD class=h2>What is Lyrics3?</TD></TR></TBODY></TABLE>
+<TABLE width="80%" border=0>
+  <TBODY>
+  <TR vAlign=top>
+    <TD>
+      <P>When Winamp introduced its plugin capabilities Kuo (Djohan) 
+      Shiang-shiang's Lyrics Displayer was one of the first plugins, and 
+      probably the first program that made a connection between MP3 audio and 
+      lyrics. The lyrics displayed by Kuo's Lyrics Displayer were stored in 
+      separate text files from which the program got it.</P>
+      <P>Petr Strnad saw the problems in this so he decided to make a lyrics 
+      tag, enabling the text to reside inside the audio file. This is done by 
+      creating a chunk of data which begins with "LYRICSBEGIN", ends with 
+      "LYRICSEND" and has the lyrics between these keywords. This data block is 
+      then saved in the audio file between the audio and the ID3 tag. If no ID3 
+      tag is present one must be attached.</P>
+      <P>The following simple rules applies to the lyrics inserted between the 
+      keywords:</P>
+      <P>
+      <UL>
+        <LI>The keywords "LYRICSBEGIN" and "LYRICSEND" must not be present in 
+        the lyrics. 
+        <LI>The text is encoded with ISO-8859-1 character set 
+        <LI>A byte in the text must not have the binary value 255. 
+        <LI>The maximum length of the lyrics is 5100 bytes. 
+        <LI>Newlines are made with CR+LF sequence.</LI></UL>
+      <P></P></TD>
+    <TD align=middle width=230><IMG height=292 
+      alt="Internal layout of an Lyrics3 tagged file." 
+      src="Lyrics3 made easy.files/lyrics3_blocks.gif" width=169> 
+      <BR><I>Internal layout of an Lyrics3<BR>tagged 
+file.</I></TD></TR></TBODY></TABLE><BR>&nbsp; </CENTER></BODY></HTML>
